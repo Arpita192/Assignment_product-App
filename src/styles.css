@@ -1,6 +1,4 @@
-/* ===============================
-   GLOBAL RESET
-================================ */
+
 * {
   margin: 0;
   padding: 0;
@@ -14,9 +12,7 @@ body {
   line-height: 1.5;
 }
 
-/* ===============================
-   HEADER
-================================ */
+
 .header {
   background: #111;
   color: #fff;
@@ -37,7 +33,6 @@ body {
   gap: 12px;
 }
 
-/* Search */
 .search-box input {
   width: 280px;
   padding: 10px 16px;
@@ -47,7 +42,7 @@ body {
   font-size: 14px;
 }
 
-/* Toggle Button */
+
 .header-actions button {
   padding: 8px 14px;
   border: none;
@@ -58,18 +53,14 @@ body {
   font-size: 13px;
 }
 
-/* ===============================
-   MAIN CONTAINER
-================================ */
+
 .container {
   width: 100%;
-  padding: 30px 60px;   /* balanced side spacing */
+  padding: 30px 60px; 
 }
 
 
-/* ===============================
-   ADD / EDIT PRODUCT FORM
-================================ */
+
 .product-form-section {
   background: #fff;
   padding: 22px;
@@ -89,7 +80,7 @@ body {
   gap: 24px;
 }
 
-/* Image preview */
+
 .image-preview img {
   width: 100%;
   height: 180px;
@@ -104,7 +95,7 @@ body {
   color: #666;
 }
 
-/* Form grid */
+
 .enhanced-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -145,7 +136,7 @@ body {
   grid-column: span 2;
 }
 
-/* Form button */
+
 .primary-btn {
   grid-column: span 2;
   margin-top: 8px;
@@ -158,9 +149,6 @@ body {
   font-size: 14px;
 }
 
-/* ===============================
-   PRODUCT CARD GRID
-================================ */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -223,9 +211,6 @@ body {
   font-size: 13px;
 }
 
-/* ===============================
-   TABLE VIEW
-================================ */
 .table-wrapper {
   overflow-x: auto;
   margin-top: 20px;
@@ -265,9 +250,7 @@ body {
   font-size: 13px;
 }
 
-/* ===============================
-   PAGINATION
-================================ */
+
 .pagination {
   margin-top: 30px;
   text-align: center;
@@ -287,9 +270,7 @@ body {
   color: #fff;
 }
 
-/* ===============================
-   FOOTER
-================================ */
+
 .footer {
   margin-top: 60px;
   background: #111;
@@ -299,19 +280,68 @@ body {
   font-size: 13px;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
+
 @media (max-width: 768px) {
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .header-actions button {
+    width: 100%;
+  }
+
+  .container {
+    padding: 20px 16px;
+  }
+
+ 
   .product-form-wrapper {
     grid-template-columns: 1fr;
+  }
+
+  .image-preview img {
+    height: 160px;
   }
 
   .enhanced-form {
     grid-template-columns: 1fr;
   }
 
-  .search-box input {
-    width: 180px;
+  .primary-btn {
+    width: 100%;
+  }
+
+ 
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card img {
+    height: 180px;
+  }
+
+  .modern-table {
+    font-size: 13px;
+  }
+
+
+  .footer {
+    font-size: 12px;
+    padding: 14px;
   }
 }
+
