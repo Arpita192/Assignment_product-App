@@ -4,7 +4,7 @@ import ProductTable from "./components/ProductTable";
 import ProductCard from "./components/ProductCard";
 import Pagination from "./components/Pagination";
 
-/* 🔹 Product-name based images (highest priority) */
+/* Product-name based images (highest priority) */
 const PRODUCT_IMAGE_MAP = {
   laptop: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
   watch: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f",
@@ -13,7 +13,7 @@ const PRODUCT_IMAGE_MAP = {
   table: "https://images.unsplash.com/photo-1493666438817-866a91353ca9"
 };
 
-/* 🔹 Category fallback images */
+/* Category fallback images */
 const CATEGORY_IMAGE_MAP = {
   Electronics: "https://images.unsplash.com/photo-1518770660439-4636190af475",
   Furniture: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
@@ -34,30 +34,32 @@ export default function App() {
   /* 🔹 Debounce search (500ms) */
   useEffect(() => {
     const timer = setTimeout(() => {
-      setDebouncedSearch(search);
-      setPage(1);
+      setDebouncedSearch(search.toLowerCase());
+      setPage(1); // reset pagination on search
     }, 500);
+
     return () => clearTimeout(timer);
   }, [search]);
 
-  /* 🔹 Filter products */
-  const filteredProducts = products.filter(p =>
-    p.name.toLowerCase().includes(debouncedSearch.toLowerCase())
+  /* 🔹 FILTER FIRST (CRITICAL) */
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(debouncedSearch)
   );
 
+  /* 🔹 THEN PAGINATE */
   const start = (page - 1) * limit;
   const paginatedProducts = filteredProducts.slice(start, start + limit);
 
-  /* 🔹 SAVE PRODUCT (image logic here) */
+  /* 🔹 SAVE PRODUCT WITH IMAGE LOGIC */
   const saveProduct = (product) => {
     const nameKey = product.name.toLowerCase();
 
-    const productKey = Object.keys(PRODUCT_IMAGE_MAP)
+    const matchedKey = Object.keys(PRODUCT_IMAGE_MAP)
       .find(key => nameKey.includes(key));
 
     const image =
-      productKey
-        ? PRODUCT_IMAGE_MAP[productKey]
+      matchedKey
+        ? PRODUCT_IMAGE_MAP[matchedKey]
         : CATEGORY_IMAGE_MAP[product.category] ||
           CATEGORY_IMAGE_MAP.Default;
 
@@ -105,7 +107,11 @@ export default function App() {
           editingProduct={editingProduct}
         />
 
-        {view === "card" ? (
+        {filteredProducts.length === 0 ? (
+          <p style={{ marginTop: "20px", textAlign: "center" }}>
+            No products found.
+          </p>
+        ) : view === "card" ? (
           <ProductCard
             products={paginatedProducts}
             onEdit={setEditingProduct}
