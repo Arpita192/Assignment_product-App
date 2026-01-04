@@ -1,0 +1,317 @@
+/* ===============================
+   GLOBAL RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.header {
+  background: #111;
+  color: #fff;
+  padding: 18px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Search */
+.search-box input {
+  width: 280px;
+  padding: 10px 16px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Toggle Button */
+.header-actions button {
+  padding: 8px 14px;
+  border: none;
+  background: #fff;
+  color: #111;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* ===============================
+   MAIN CONTAINER
+================================ */
+.container {
+  width: 100%;
+  padding: 30px 60px;   /* balanced side spacing */
+}
+
+
+/* ===============================
+   ADD / EDIT PRODUCT FORM
+================================ */
+.product-form-section {
+  background: #fff;
+  padding: 22px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.product-form-section h3 {
+  margin-bottom: 18px;
+  font-size: 18px;
+}
+
+.product-form-wrapper {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+}
+
+/* Image preview */
+.image-preview img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.image-preview small {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Form grid */
+.enhanced-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 9px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.field span {
+  font-size: 12px;
+  color: #d32f2f;
+  margin-top: 3px;
+}
+
+.field.full {
+  grid-column: span 2;
+}
+
+/* Form button */
+.primary-btn {
+  grid-column: span 2;
+  margin-top: 8px;
+  padding: 12px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ===============================
+   PRODUCT CARD GRID
+================================ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.category-badge {
+  font-size: 12px;
+  color: #777;
+}
+
+.card-body h4 {
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 17px;
+  margin: 4px 0;
+}
+
+.stock {
+  font-size: 13px;
+  color: #555;
+}
+
+.card-body button {
+  margin-top: 10px;
+  padding: 7px 12px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* ===============================
+   TABLE VIEW
+================================ */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.modern-table th {
+  background: #111;
+  color: #fff;
+  text-align: left;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.modern-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.modern-table tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.edit-btn {
+  padding: 6px 10px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* ===============================
+   PAGINATION
+================================ */
+.pagination {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.pagination button {
+  padding: 6px 10px;
+  margin: 0 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination .active {
+  background: #111;
+  color: #fff;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+.footer {
+  margin-top: 60px;
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 16px;
+  font-size: 13px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .product-form-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .enhanced-form {
+    grid-template-columns: 1fr;
+  }
+
+  .search-box input {
+    width: 180px;
+  }
+}
