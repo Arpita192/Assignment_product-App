@@ -4,7 +4,6 @@ import ProductTable from "./components/ProductTable";
 import ProductCard from "./components/ProductCard";
 import Pagination from "./components/Pagination";
 
-/* Product-name based images (highest priority) */
 const PRODUCT_IMAGE_MAP = {
   laptop: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
   watch: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f",
@@ -13,7 +12,7 @@ const PRODUCT_IMAGE_MAP = {
   table: "https://images.unsplash.com/photo-1493666438817-866a91353ca9"
 };
 
-/* Category fallback images */
+
 const CATEGORY_IMAGE_MAP = {
   Electronics: "https://images.unsplash.com/photo-1518770660439-4636190af475",
   Furniture: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
@@ -31,26 +30,25 @@ export default function App() {
 
   const limit = 6;
 
-  /* 🔹 Debounce search (500ms) */
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(search.toLowerCase());
-      setPage(1); // reset pagination on search
+      setPage(1); 
     }, 500);
 
     return () => clearTimeout(timer);
   }, [search]);
 
-  /* 🔹 FILTER FIRST (CRITICAL) */
+
   const filteredProducts = products.filter(product =>
     product.name.toLowerCase().includes(debouncedSearch)
   );
 
-  /* 🔹 THEN PAGINATE */
+
   const start = (page - 1) * limit;
   const paginatedProducts = filteredProducts.slice(start, start + limit);
 
-  /* 🔹 SAVE PRODUCT WITH IMAGE LOGIC */
   const saveProduct = (product) => {
     const nameKey = product.name.toLowerCase();
 
@@ -81,9 +79,10 @@ export default function App() {
 
   return (
     <>
-      {/* ================= HEADER ================= */}
+      
       <header className="header">
-        <h1>Furnitor Admin</h1>
+        <h1>Product Management Dashboard</h1>
+
 
         <div className="header-actions">
           <div className="search-box">
@@ -100,7 +99,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* ================= MAIN ================= */}
+     
       <main className="container">
         <ProductForm
           saveProduct={saveProduct}
@@ -131,7 +130,7 @@ export default function App() {
         />
       </main>
 
-      {/* ================= FOOTER ================= */}
+      
       <footer className="footer">
         © 2026 Grey Scientific Labs · Frontend Assignment
       </footer>
